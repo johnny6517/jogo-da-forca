@@ -5,30 +5,31 @@
 #include<cstring>
 #include<ctype.h>
 #include<stdio.h>
-#include<C:\Users\BOTenigma\Desktop\CÛdigos fonte\regrasDeJogo.cpp>
+#include<C:\Users\BOTenigma\Desktop\C√≥digos fonte\regrasDeJogo.cpp>
 using namespace std;
 
 main(){
+	
 	setlocale(LC_ALL,"portuguese");
 
 	regrasDeJogo objeto;
 
-	//declarando as vari·veis necess·rias
+	//declarando as vari√°veis necess√°rias
 	char loop = 's';
 	int vitorias = 0, derrotas = 0;
 
 	//loop para repetir o jogo
-	//loop j· entra como verdadeiro, caso a resposta seja N o escopo indentificar· a mesma resposta e sair· do laÁo
+	//loop j√° entra como verdadeiro, caso a resposta seja N o escopo indentificar√° a mesma resposta e sair√° do la√ßo
 	while(loop == 's' || loop == 'Sim' || loop == 'SIM'){
 
-		//Cada vez que o usu·rio perde ou vence, no final do programa È incrementado um valor
+		//Cada vez que o usu√°rio perde ou vence, no final do programa √© incrementado um valor
 		if(vitorias != 0){
-			cout<<"Quantidade de VitÛrias........:  "<<vitorias<<endl;
+			cout<<"Quantidade de Vit√≥rias........:  "<<vitorias<<endl;
 		}if(derrotas != 0){
 			cout<<"Quantidade de Derrotas........:  "<<derrotas<<"\n\n";
 		}
 
-		//declarando as vari·veis necess·rias
+		//declarando as vari√°veis necess√°rias
 		string validando;
 		char secreta[500], entrada[100], secretaM[100], secretaMi[100], palavra[100], maiusculas[100], minusculas[100], letra[1];
 		char dica[500]="";
@@ -49,59 +50,59 @@ main(){
 		fflush(stdin);
 
 		if(validando == "s" || validando == "Sim" || validando == "SIM" || validando == "sim"){
-			cout<<"Escreva a dica sem espaÁos: ";
+			cout<<"Escreva a dica sem espa√ßos: ";
 			cin.get(dica,500);
 		}
 
-		//apÛs introduzir a palavra secreta, o cls limpa o prompt para o jogador n„o VÍ-la
+		//ap√≥s introduzir a palavra secreta, o cls limpa o prompt para o jogador n√£o V√™-la
 		system("cls");
 
-		//atribuindo os traÁos ao array secreta
+		//atribuindo os tra√ßos ao array secreta
 		for(i = 0; i < strlen(palavra); i++){
 			secreta[i] = '-';
 			secretaM[i] = '-';
 			secretaMi[i] = '-';
 		}
 
-		//enquanto chances for verdadeiro e acerto melhor que o range de palavra faÁa
+		//enquanto chances for verdadeiro e acerto melhor que o range de palavra fa√ßa
 		while(acerto < strlen(palavra) && erros < 5){
-			//laÁo para executar todo o esquema do jogo para depois validar no final se foi repetido alguma letra
+			//la√ßo para executar todo o esquema do jogo para depois validar no final se foi repetido alguma letra
 			do{
 				objeto.forca(erros);
 
 				if(strlen(dica) > 1){
-					cout<<"A dica È: "<<dica<<endl;
+					cout<<"A dica √©: "<<dica<<endl;
 				}
-				//caso o while retorne falso, a condiÁ„o ir· imprimir o texto
+				//caso o while retorne falso, a condi√ß√£o ir√° imprimir o texto
 				if(!teste ){
-					cout<<"N„o vale repetir a letra!";
+					cout<<"N√£o vale repetir a letra!";
 				}
 
-				//atribuindo verdadeiro ao booleano para caso n„o repita uma palavra, sair do laÁo
+				//atribuindo verdadeiro ao booleano para caso n√£o repita uma palavra, sair do la√ßo
 				teste = true;
 
-				//ao reiniciar o laÁo os dados s„o atualizados com N de chances, palavra anterior e quantidade de acertos
+				//ao reiniciar o la√ßo os dados s√£o atualizados com N de chances, palavra anterior e quantidade de acertos
 				cout<<"\nErros: "<<erros<<endl;
 				setlocale(LC_ALL,"C");
 				cout<<"Palavra anterior: "<<letra[0]<<"         acertos: "<<acerto;
 				cout<<"\n\n";
 				
-				//Caso a letra digitada for verdadeira, o laÁo ir· atualizar o array secreta e imprimir com a letra referente
+				//Caso a letra digitada for verdadeira, o la√ßo ir√° atualizar o array secreta e imprimir com a letra referente
 				for(i = 0; i < strlen(palavra); i++){
 					setlocale(LC_ALL,"C");
 					cout<<secreta[i];
 				}
 				setlocale(LC_ALL,"portuguese");
-				//fica fixo na tela o range do array palavra e o usu·rio digita a letra para ser validada
-				cout<<"\nA palavra secreta contÈm: "<<strlen(palavra)<<" letras";
+				//fica fixo na tela o range do array palavra e o usu√°rio digita a letra para ser validada
+				cout<<"\nA palavra secreta cont√©m: "<<strlen(palavra)<<" letras";
 				cout<<"\n\n";
 				cout<<"Digite a letra: "<<endl;
 				cin>>letra[0];
 
-				//apÛs digitados os dados, a tela È limpa e o laÁo reinicia com os dados autalizados
+				//ap√≥s digitados os dados, a tela √© limpa e o la√ßo reinicia com os dados autalizados
 				system("cls");
 
-				//analisa se a palavra anterior j· foi digitada, caso fora, retorna um false e reinicia o do...while
+				//analisa se a palavra anterior j√° foi digitada, caso fora, retorna um false e reinicia o do...while
 				for(i = 0; i < strlen(palavra); i++){
 					if(letra[0]==secreta[i] or letra[0]==secretaM[i] or letra[0]==secretaMi[i])
 						teste = false;
@@ -109,12 +110,12 @@ main(){
 			}
 			while(!teste);
 
-			/*o laÁo realiza a checagem se a letra digitada È mai˙scula ou min˙scila, caso seja diferente do array palavra
-		 	a condiÁ„o ir· colocar todas as letras mai˙sculas ou min˙sculas */
+			/*o la√ßo realiza a checagem se a letra digitada √© mai√∫scula ou min√∫scila, caso seja diferente do array palavra
+		 	a condi√ß√£o ir√° colocar todas as letras mai√∫sculas ou min√∫sculas */
 			objeto.ignoreCase(letra,palavra,maiusculas,minusculas);
 
-			/*Caso o dado do usu·rio seja verdadeiro, a letra digitada ser· atribuida ao array secreta e sendo revelada na tela
-			se toda palavra for verdadeira, o usu·rio incrementa acerto atÈ o range da palavra secreta, assim saindo do while principal */
+			/*Caso o dado do usu√°rio seja verdadeiro, a letra digitada ser√° atribuida ao array secreta e sendo revelada na tela
+			se toda palavra for verdadeira, o usu√°rio incrementa acerto at√© o range da palavra secreta, assim saindo do while principal */
 			for(i = 0; i < strlen(palavra); i++){
 				if(palavra[i]==letra[0] || maiusculas[i]==letra[0] || minusculas[i]==letra[0]){
 					secreta[i] = palavra[i];
@@ -125,26 +126,26 @@ main(){
 				}
 			}
 
-			//caso o usu·rio erre a letra, o laÁo anterior atribuir· falso e decrementar· chances
+			//caso o usu√°rio erre a letra, o la√ßo anterior atribuir√° falso e decrementar√° chances
 			if(acertos == false){
 				erros++;
 			}
 
-			/* caso o usu·rio acerte, se o laÁo reiniciar como verdadeiro, caso ele erre a prÛxima palavra
-			n„o decrementar· as "chances", ou seja, ele nunca errar·. */
+			/* caso o usu√°rio acerte, se o la√ßo reiniciar como verdadeiro, caso ele erre a pr√≥xima palavra
+			n√£o decrementar√° as "chances", ou seja, ele nunca errar√°. */
 			acertos = false;
 		}
 
-		/*Saindo do laÁo princpial do jogo, È analizado os dois arrays de String
-		caso Òao sejam iguais, ir· fazer a impress„o dos acertos e a palavra secreta
-		caso sejam iguals ignoram e v„o para o ˙ltimo laÁo */
+		/*Saindo do la√ßo princpial do jogo, √© analizado os dois arrays de String
+		caso √±ao sejam iguais, ir√° fazer a impress√£o dos acertos e a palavra secreta
+		caso sejam iguals ignoram e v√£o para o √∫ltimo la√ßo */
 		setlocale(LC_ALL,"C");
 		objeto.revelaAsDuasPalavras(palavra,secreta);
 		setlocale(LC_ALL,"portuguese");
-		//laÁo que imprime estrelas na tela
+		//la√ßo que imprime estrelas na tela
 		objeto.estrelas();
 
-		/*se as duas strings forem iguais vocÍ ganha, se n„o perde
+		/*se as duas strings forem iguais voc√™ ganha, se n√£o perde
 		strcmp() analisa duas strings e retorna inteiro 0 para true e 1 para false */
 		if(strcmp(palavra,secreta) != 1){
 			objeto.vitoria();
@@ -165,7 +166,7 @@ main(){
 	if(vitorias != 0)
 		cout<<"Suas vitorias foram.......: "<<vitorias<<endl;
 	if(derrotas == 0){
-		cout<<"ParabÈns, vocÍ permaneceu invicto! :D"<<endl;
+		cout<<"Parab√©ns, voc√™ permaneceu invicto! :D"<<endl;
 		objeto.vitoria();
 	}
 	if(derrotas != 0 )
